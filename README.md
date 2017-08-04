@@ -1,27 +1,45 @@
-# Ember-frost-pick-list
+[ci-img]: https://img.shields.io/travis/ciena-frost/ember-frost-pick-list.svg "Travis CI Build Status"
+[ci-url]: https://travis-ci.org/ciena-frost/ember-frost-pick-list
 
-This README outlines the details of collaborating on this Ember addon.
+[cov-img]: https://img.shields.io/coveralls/ciena-frost/ember-frost-pick-list.svg "Coveralls Code Coverage"
+[cov-url]: https://coveralls.io/github/ciena-frost/ember-frost-pick-list
+
+[npm-img]: https://img.shields.io/npm/v/ember-frost-pick-list.svg "NPM Version"
+[npm-url]: https://www.npmjs.com/package/ember-frost-pick-list
+
+[![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
+
+# ember-frost-pick-list
+
+ * [Installation](#installation)
+ * [API](#api)
+ * [Examples](#examples)
+ * [Development](#development)
 
 ## Installation
+```
+ember install ember-frost-pick-list
+```
 
-* `git clone <repository-url>` this repository
-* `cd ember-frost-pick-list`
-* `npm install`
-* `bower install`
+## API
+Coming soon
 
-## Running
+## Examples
+Coming soon
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+## Development
+### Setup
+```
+git clone git@github.com:ciena-frost/ember-frost-pick-list.git
+cd ember-frost-pick-list
+npm install && bower install
+```
 
-## Running Tests
+### Development Server
+A dummy application for development is available under `ember-frost-pick-list/tests/dummy`.
+To run the server run `ember server` (or `npm start`) from the root of the repository and
+visit the app at http://localhost:4200.
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+### Testing
+Run `npm test` from the root of the project to run linting checks as well as execute the test suite
+and output code coverage.
