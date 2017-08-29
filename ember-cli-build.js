@@ -8,7 +8,11 @@ module.exports = function (defaults) {
     },
     'ember-cli-mocha': {
       useLintTree: false
-    }
+    },
+    snippetSearchPaths: [
+      'addon',
+      'tests/dummy'
+    ]
   })
 
   /*

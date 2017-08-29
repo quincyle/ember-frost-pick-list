@@ -1,2 +1,15 @@
-frost-pick-list testbed
-{{frost-pick-list}}
+<div class='addon-demo'>
+  <div class='addon-demos'>
+    <div class='addon-demo-title'>
+      Demos
+    </div>
+    <div class='addon-demo-selectors'>
+      {{#link-to 'demo.overview'}}Overview{{/link-to}}
+      {{#link-to 'demo.table'}}Content in a table{{/link-to}}
+      {{#link-to 'demo.list'}}Content in a list{{/link-to}}
+    </div>
+  </div>
+  <div class='addon-demo-example'>
+    {{outlet}}
+  </div>
+</div>

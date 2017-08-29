@@ -1,2 +1,55 @@
-ember-frost-pick-list component
-{{yield}}
+<div class="a-row">
+  {{frost-text
+    hook='filter-text'
+    onInput=(action 'handleInput')
+    placeholder='Filter'
+  }}
+  <div class="buttons">
+    <div class="label">Show: </div>
+    {{frost-button
+      hook='all-button'
+      priority=onlySelectedComputed.all
+      size='small'
+      text='All'
+      onClick=(action 'showAll')
+    }}
+    <div class="splitter">|</div>
+    {{frost-button
+      hook='selected-button'
+      priority=onlySelectedComputed.selected
+      size='small'
+      text='Selected'
+      onClick=(action 'showSelected')
+    }}
+  </div>
+</div>
+{{#if sortingProperties}}
+  <div class="a-row">
+      <div class="sort-wrapper">
+        {{frost-sort
+          hook='mySort'
+          sortOrder=sortOrder
+          sortOrderMax=sortOrderMax
+          sortingProperties=sortingProperties
+          onChange=(action 'sort')
+        }}
+      </div>
+    <div class="sub-title {{if (eq 'frost-list' listComponent.name) 'is-frost-list'}}">
+      {{subTitle}}
+    </div>
+  </div>
+{{/if}}
+<div class="a-row {{if (eq 'frost-list' listComponent.name) 'is-frost-list'}}">
+  {{#if (gt items.length 0)}}
+    {{component listComponent
+      hook='list-component'
+      items=items
+      itemKey='uuid'
+      selectedItems=selectedItems
+    }}
+  {{else}}
+    No data to display
+  {{/if}}
+</div>
+
+

@@ -1,0 +1,89 @@
+{{!-- BEGIN-SNIPPET content-api }}
+{{frost-pick-list
+  ...
+  listComponent=(component 'frost-table'
+      columns=(array
+        (hash
+          className='<defaults to flex1 but you can use flex2, flex5, flex10 tu use more space>'
+          label='<Label to show>'
+          propertyName='<Property of the column>'
+        )
+        ...
+      )
+      itemKey='<Row that holds the unique key>'
+      onSelectionChange=(action '<String>')
+    )
+  items=<Array of all items>
+  sortOrder=<Array of string>
+  sortingProperties=<Array of objects>
+  sortOrderMax=<number>
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    Notes
+  </div>
+  <div class='addon-demo-notes'>
+    <p>
+      To have your list content displayed inside a frost-table.
+    </p>
+  </div>
+  <div class='addon-demo-title'>
+    API
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='content-api.hbs'}}
+  </div>
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Demo controller</i>
+    {{code-snippet name='pick-list-controller.js'}}
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Demo template</i>
+    {{code-snippet name='content-frost-pick-list.hbs'}}
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET content-frost-pick-list }}
+    {{frost-pick-list
+      hook='frostPickListFromTable'
+      listComponent=(component 'frost-table'
+        columns=(array
+          (hash
+            className='flex-5'
+            label='Name'
+            propertyName='name'
+          )
+          (hash
+            className='flex-2'
+            label='Milk'
+            propertyName='milk'
+          )
+          (hash
+            className='flex-2'
+            label='Espresso'
+            propertyName='espresso'
+          )
+          (hash
+            className='flex-5'
+            label='Other'
+            propertyName='other'
+          )
+        )
+        itemKey='uuid'
+        onSelectionChange=(action 'onSelectChange')
+      )
+      selectedItems=selectedItems
+      items=model
+      sortOrder=sortOrder
+      sortingProperties=sortingProperties
+      sortOrderMax=2
+    }}
+    {{! END-SNIPPET }}
+  </div>
+</div>

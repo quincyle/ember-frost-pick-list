@@ -1,0 +1,79 @@
+{{notification-container position="top-right"}}
+{{!-- BEGIN-SNIPPET overview-content-api }}
+{{frost-pick-list
+  listComponent=(component '<component name>'
+      itemKey='<Row that holds the unique key>'
+      onSelectionChange=(action '<String>')
+    )
+  items=<Array of all items>
+  sortOrder=<Array of string>
+  sortingProperties=<Array of objects>
+  sortOrderMax=<number>
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    Notes
+  </div>
+  <div class='addon-demo-notes'>
+    <p>
+    <p>
+      <b>ember-frost-pick-list</b> is a list picker for Ember.
+    </p>
+    </p>
+  </div>
+  <div class='addon-demo-title'>
+    API
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='overview-content-api.hbs'}}
+  </div>
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Demo template</i>
+    {{code-snippet name='content-overview-frost-tabs.hbs'}}
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET content-overview-frost-tabs }}
+    {{frost-pick-list
+      hook='frostPickListFromTable'
+      listComponent=(component 'frost-table'
+        columns=(array
+          (hash
+            className='flex-5'
+            label='Name'
+            propertyName='name'
+          )
+          (hash
+            className='flex-2'
+            label='Milk'
+            propertyName='milk'
+          )
+          (hash
+            className='flex-2'
+            label='Espresso'
+            propertyName='espresso'
+          )
+          (hash
+            className='flex-5'
+            label='Other'
+            propertyName='other'
+          )
+        )
+        itemKey='uuid'
+        onSelectionChange=(action 'onSelectChange')
+      )
+      selectedItems=selectedItems
+      items=model
+      sortOrder=sortOrder
+      sortingProperties=sortingProperties
+      sortOrderMax=2
+    }}
+    {{! END-SNIPPET}}
+  </div>
+</div>
