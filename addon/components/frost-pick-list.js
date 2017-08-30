@@ -1,8 +1,10 @@
 import Ember from 'ember'
-const {A, Component, run, copy} = Ember
+const {A, Component, copy} = Ember
 import {sort} from 'ember-frost-sort'
 import computed, {readOnly} from 'ember-computed-decorators'
 import layout from '../templates/components/frost-pick-list'
+import {PropTypes} from 'ember-prop-types'
+import {ItemsPropType} from 'ember-frost-table/typedefs'
 
 export default Component.extend({
   // == Dependencies ==========================================================
@@ -11,10 +13,33 @@ export default Component.extend({
 
   classNames: ['frost-pick-list'],
   selectedItems: A([]),
-  sortOrderMax: 1,
+  itemsCached: A([]),
   inputFilter: '',
   onlySelected: false,
   layout,
+
+  // == PropTypes =============================================================
+
+  propTypes: {
+    // options
+    listComponent: PropTypes.object.isRequired,
+    selectedItems: PropTypes.arrayOf(PropTypes.string),
+    items: PropTypes.arrayOf(PropTypes.object),
+    sortOrder: PropTypes.arrayOf(PropTypes.string),
+    sortingProperties: PropTypes.arrayOf(PropTypes.object),
+    sortOrderMax: PropTypes.number
+  },
+
+  getDefaultProps () {
+    return {
+      // options
+      items: A([]),
+      sortOrder: A([]),
+      selectedItems: A([]),
+      sortingProperties: A([]),
+      sortOrderMax: 1
+    }
+  },
 
   // == Computed Properties ===================================================
 
@@ -52,7 +77,8 @@ export default Component.extend({
 
   init () {
     this._super(...arguments)
-    this.set('itemsCached', copy(this.get('items'), true))
+    this.get('itemsCached').setObjects(copy(this.get('items')))
+    this.processItems('itemsCached')
   },
 
   processItems (itemsToProcess) {
@@ -80,11 +106,6 @@ export default Component.extend({
   // == Actions ===============================================================
 
   actions: {
-    onSelectionChange (selectedItems) {
-      this.get('selectedItems').setObjects(selectedItems)
-      let onSelect = this.get('onSelect')
-      onSelect(selectedItems)
-    },
     sort (sortOrder) {
       this.set('sortOrder', sortOrder)
       let onlySelected = this.get('onlySelected') ? 'selectedItems' : 'itemsCached'
