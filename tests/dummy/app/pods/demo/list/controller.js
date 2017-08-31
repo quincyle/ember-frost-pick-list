@@ -1,7 +1,5 @@
 import Ember from 'ember'
-const {Controller, A} = Ember
-import computed, {readOnly} from 'ember-computed-decorators'
-import {sort} from 'ember-frost-sort'
+const {A, Controller} = Ember
 
 export default Controller.extend({
   // BEGIN-SNIPPET pick-list-controller-list
@@ -23,5 +21,5 @@ export default Controller.extend({
       this.get('expandedItems').setObjects(expandedItems)
     }
   }
-  //END-SNIPPET
+  // END-SNIPPET
 })

@@ -1,11 +1,11 @@
-import Ember from 'ember'
 import {expect} from 'chai'
+import Ember from 'ember'
+import {$hook, initialize as initializeHook} from 'ember-hook'
+import wait from 'ember-test-helpers/wait'
 import {integration} from 'ember-test-utils/test-support/setup-component-test'
 import hbs from 'htmlbars-inline-precompile'
-import {$hook, initialize as initializeHook} from 'ember-hook'
 import {afterEach, beforeEach, describe, it} from 'mocha'
 import sinon from 'sinon'
-import wait from 'ember-test-helpers/wait'
 const {$, A, run} = Ember
 
 const test = integration('frost-pick-list')
@@ -98,29 +98,29 @@ describe(test.label, function () {
           listComponent=(component 'frost-table'
             columns=(array
                 (hash
-                  className='flex-5'
+                  className='flex-l'
                   label='Name'
                   propertyName='name'
                 )
                 (hash
-                  className='flex-2'
+                  className='flex-m'
                   label='Milk'
                   propertyName='milk'
                 )
                 (hash
-                  className='flex-2'
+                  className='flex-m'
                   label='Espresso'
                   propertyName='espresso'
                 )
                 (hash
-                  className='flex-5'
+                  className='flex-l'
                   label='Other'
                   propertyName='other'
                 )
-              )
-            itemKey='uuid'
-            onSelectionChange=(action onSelectionChange)
-          )
+                    )
+                  itemKey='uuid'
+                  onSelectionChange=(action onSelectionChange)
+                )
           selectedItems=selectedItems
           items=model
           sortOrder=sortOrder

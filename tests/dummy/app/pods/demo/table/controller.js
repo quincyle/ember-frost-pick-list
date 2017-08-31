@@ -1,5 +1,5 @@
 import Ember from 'ember'
-const {Controller, A} = Ember
+const {A, Controller} = Ember
 
 export default Controller.extend({
   // BEGIN-SNIPPET pick-list-controller

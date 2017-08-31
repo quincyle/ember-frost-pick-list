@@ -1,5 +1,5 @@
 import Ember from 'ember'
-const {Route, A, copy} = Ember
+const {A, Route, copy} = Ember
 
 export default Route.extend({
   aModel: [

@@ -25,15 +25,15 @@
 </div>
 {{#if sortingProperties}}
   <div class="a-row">
-      <div class="sort-wrapper">
-        {{frost-sort
-          hook='mySort'
-          sortOrder=sortOrder
-          sortOrderMax=sortOrderMax
-          sortingProperties=sortingProperties
-          onChange=(action 'sort')
-        }}
-      </div>
+    <div class="sort-wrapper">
+      {{frost-sort
+        hook='mySort'
+        sortOrder=sortOrder
+        sortOrderMax=sortOrderMax
+        sortingProperties=sortingProperties
+        onChange=(action 'sort')
+      }}
+    </div>
     <div class="sub-title {{if (eq 'frost-list' listComponent.name) 'is-frost-list'}}">
       {{subTitle}}
     </div>

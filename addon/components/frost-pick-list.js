@@ -1,7 +1,7 @@
 import Ember from 'ember'
 const {A, Component, copy} = Ember
-import {sort} from 'ember-frost-sort'
 import computed, {readOnly} from 'ember-computed-decorators'
+import {sort} from 'ember-frost-sort'
 import layout from '../templates/components/frost-pick-list'
 import {PropTypes} from 'ember-prop-types'
 
@@ -52,7 +52,7 @@ export default Component.extend({
   onlySelectedComputed (onlySelected) {
     return {
       all: onlySelected ? 'tertiary' : 'primary',
-      selected: onlySelected ? 'primary' : 'tertiary',
+      selected: onlySelected ? 'primary' : 'tertiary'
     }
   },
 
