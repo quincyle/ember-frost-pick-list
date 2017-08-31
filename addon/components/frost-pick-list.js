@@ -4,7 +4,6 @@ import {sort} from 'ember-frost-sort'
 import computed, {readOnly} from 'ember-computed-decorators'
 import layout from '../templates/components/frost-pick-list'
 import {PropTypes} from 'ember-prop-types'
-import {ItemsPropType} from 'ember-frost-table/typedefs'
 
 export default Component.extend({
   // == Dependencies ==========================================================
