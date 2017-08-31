@@ -9,6 +9,9 @@ module.exports = function (defaults) {
     'ember-cli-mocha': {
       useLintTree: false
     },
+    'ember-cli-babel': {
+      includePolyfill: true
+    },
     snippetSearchPaths: [
       'addon',
       'tests/dummy'
