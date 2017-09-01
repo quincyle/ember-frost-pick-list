@@ -11,7 +11,6 @@ export default Component.extend({
   // == Properties ============================================================
 
   classNames: ['frost-pick-list'],
-  selectedItems: A([]),
   itemsCached: A([]),
   inputFilter: '',
   onlySelected: false,
@@ -22,7 +21,7 @@ export default Component.extend({
   propTypes: {
     // options
     listComponent: PropTypes.object.isRequired,
-    selectedItems: PropTypes.arrayOf(PropTypes.string),
+    selectedItems: PropTypes.arrayOf(PropTypes.object),
     items: PropTypes.arrayOf(PropTypes.object),
     sortOrder: PropTypes.arrayOf(PropTypes.string),
     sortingProperties: PropTypes.arrayOf(PropTypes.object),
@@ -89,7 +88,7 @@ export default Component.extend({
     return items.filter((item) => {
       let allKeys = Object.keys(item)
       return allKeys.some((aKey) => {
-        if (Object.prototype.toString.call(item[aKey]) !== '[object String]') {
+        if (typeof item[aKey] !== 'string') {
           return false
         }
         if (item[aKey].toLowerCase().indexOf(this.get('inputFilter').toLowerCase()) !== -1) {

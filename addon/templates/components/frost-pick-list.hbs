@@ -1,13 +1,13 @@
 <div class="a-row">
   {{frost-text
-    hook='filter-text'
+    hook=(concat hook '-filterText')
     onInput=(action 'handleInput')
     placeholder='Filter'
   }}
   <div class="buttons">
     <div class="label">Show: </div>
     {{frost-button
-      hook='all-button'
+      hook=(concat hook '-allButton')
       priority=onlySelectedComputed.all
       size='small'
       text='All'
@@ -15,7 +15,7 @@
     }}
     <div class="splitter">|</div>
     {{frost-button
-      hook='selected-button'
+      hook=(concat hook '-selectedButton')
       priority=onlySelectedComputed.selected
       size='small'
       text='Selected'
@@ -27,7 +27,7 @@
   <div class="a-row">
     <div class="sort-wrapper">
       {{frost-sort
-        hook='mySort'
+        hook=(concat hook '-mySort')
         sortOrder=sortOrder
         sortOrderMax=sortOrderMax
         sortingProperties=sortingProperties

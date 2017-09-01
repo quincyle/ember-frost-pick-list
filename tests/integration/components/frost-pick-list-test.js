@@ -135,10 +135,10 @@ describe(test.label, function () {
       expect($hook('myPickList')).to.have.length(1)
     })
     it('Should render a "frost-text" filter', function () {
-      expect($hook('filter-text')).to.have.length(1)
+      expect($hook('myPickList-filterText')).to.have.length(1)
     })
     it('Should render a "frost-sort"', function () {
-      expect($hook('mySort')).to.have.length(1)
+      expect($hook('myPickList-mySort')).to.have.length(1)
     })
     it('Should render a sub title', function () {
       expect(this.$('.sub-title')).to.have.length(1)
@@ -151,7 +151,7 @@ describe(test.label, function () {
     })
     describe('When clicking on sort button', function () {
       beforeEach(function () {
-        $hook('mySort-item-direction', {index: 0}).click()
+        $hook('myPickList-mySort-item-direction', {index: 0}).click()
         return wait()
       })
       it('Should display ', function () {
@@ -176,7 +176,7 @@ describe(test.label, function () {
         })
         describe('When changing filtering', function () {
           beforeEach(function () {
-            run(() => $hook('filter-text-input').val('am').trigger('input'))
+            run(() => $hook('myPickList-filterText-input').val('am').trigger('input'))
             return wait()
           })
           it('Should change the subtitle', function () {
@@ -185,7 +185,7 @@ describe(test.label, function () {
           describe('When changing sorting', function () {
             beforeEach(function () {
               const clickEvent = $.Event('click')
-              $hook('mySort-item-direction', {index: 0}).trigger(clickEvent)
+              $hook('myPickList-mySort-item-direction', {index: 0}).trigger(clickEvent)
               return wait()
             })
             it('Should change the subtitle', function () {
@@ -193,7 +193,7 @@ describe(test.label, function () {
             })
             describe('When clicking to show the selected records only', function () {
               beforeEach(function () {
-                $hook('selected-button').click()
+                $hook('myPickList-selectedButton').click()
                 return wait()
               })
               it('Should change the subtitle', function () {
@@ -204,7 +204,7 @@ describe(test.label, function () {
               })
               describe('When clicking to show all the records', function () {
                 beforeEach(function () {
-                  $hook('all-button').click()
+                  $hook('myPickList-allButton').click()
                   return wait()
                 })
                 it('Should change the subtitle', function () {
@@ -321,10 +321,10 @@ describe(test.label, function () {
       expect($hook('frostPickListFromList')).to.have.length(1)
     })
     it('Should render a "frost-text" filter', function () {
-      expect($hook('filter-text')).to.have.length(1)
+      expect($hook('frostPickListFromList-filterText')).to.have.length(1)
     })
     it('Should render a "frost-sort"', function () {
-      expect($hook('mySort')).to.have.length(1)
+      expect($hook('frostPickListFromList-mySort')).to.have.length(1)
     })
     it('Should render a sub title', function () {
       expect(this.$('.sub-title')).to.have.length(1)
@@ -350,7 +350,7 @@ describe(test.label, function () {
         })
         describe('When changing filtering', function () {
           beforeEach(function () {
-            run(() => $hook('filter-text-input').val('am').trigger('input'))
+            run(() => $hook('frostPickListFromList-filterText-input').val('am').trigger('input'))
             return wait()
           })
           it('Should change the subtitle', function () {
@@ -358,7 +358,7 @@ describe(test.label, function () {
           })
           describe('When clicking to show the selected records only', function () {
             beforeEach(function () {
-              $hook('selected-button').click()
+              $hook('frostPickListFromList-selectedButton').click()
               return wait()
             })
             it('Should change the subtitle', function () {
@@ -369,7 +369,7 @@ describe(test.label, function () {
             })
             describe('When clicking to show all the records', function () {
               beforeEach(function () {
-                $hook('all-button').click()
+                $hook('frostPickListFromList-allButton').click()
                 return wait()
               })
               it('Should change the subtitle', function () {
