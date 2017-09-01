@@ -64,11 +64,10 @@ export default Component.extend({
    * @returns {String} the sub title
    */
   subTitle (items, selectedItems) {
-    let total = this.get('itemsCached').length
-    let amtSelected = selectedItems ? selectedItems.length : 0
+    const total = this.get('itemsCached').length
+    const amtSelected = selectedItems ? selectedItems.length : 0
 
-    return 'Showing ' + items.length + ' ' +
-      'of ' + total + ' (' + amtSelected + ' ' + 'selected)'
+    return `Showing ${items.length} of ${total} (${amtSelected} selected)`
   },
 
   // == Functions =============================================================
@@ -106,12 +105,12 @@ export default Component.extend({
   actions: {
     sort (sortOrder) {
       this.set('sortOrder', sortOrder)
-      let onlySelected = this.get('onlySelected') ? 'selectedItems' : 'itemsCached'
+      const onlySelected = this.get('onlySelected') ? 'selectedItems' : 'itemsCached'
       this.processItems(onlySelected)
     },
     handleInput (input) {
       this.set('inputFilter', input.value)
-      let onlySelected = this.get('onlySelected') ? 'selectedItems' : 'itemsCached'
+      const onlySelected = this.get('onlySelected') ? 'selectedItems' : 'itemsCached'
       this.processItems(onlySelected)
     },
     showSelected () {
