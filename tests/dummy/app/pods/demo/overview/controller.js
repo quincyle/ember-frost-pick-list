@@ -11,10 +11,34 @@ export default Controller.extend({
     {label: 'Espresso', value: 'espresso'},
     {label: 'Other', value: 'other'}
   ],
+  columns: A([
+    {
+      className:'flex-l',
+      label:'Name',
+      propertyName:'name'
+    },
+    {
+      className:'flex-m',
+      label:'Milk',
+      propertyName:'milk'
+    },
+    {
+      className:'flex-m',
+      label:'Espresso',
+      propertyName:'espresso'
+    },
+    {
+      className:'flex-l',
+      label:'Other',
+      propertyName:'other'
+    }
+  ]),
 
   actions: {
     onSelectChange (selected) {
-      this.get('selectedItems').setObjects(selected)
+      // this.get('selectedItems').setObjects(selected)
+      this.get('selectedItems').clear()
+      this.get('selectedItems').pushObjects(selected.compact())
       if (selected.length > 0) {
         this.get('notifications').success(selected.getEach('name'), {
           autoClear: true,

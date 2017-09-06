@@ -8,7 +8,7 @@
     <div class="label">Show: </div>
     {{frost-button
       hook=(concat hook '-allButton')
-      priority=onlySelectedComputed.all
+      priority=buttonPriority.all
       size='small'
       text='All'
       onClick=(action 'showAll')
@@ -16,7 +16,7 @@
     <div class="splitter">|</div>
     {{frost-button
       hook=(concat hook '-selectedButton')
-      priority=onlySelectedComputed.selected
+      priority=buttonPriority.selected
       size='small'
       text='Selected'
       onClick=(action 'showSelected')
@@ -43,7 +43,7 @@
   {{#if (gt items.length 0)}}
     {{component listComponent
       hook='list-component'
-      items=items
+      items=sortedItems
       selectedItems=selectedItems
     }}
   {{else}}

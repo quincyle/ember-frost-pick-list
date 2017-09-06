@@ -31,6 +31,28 @@ describe(test.label, function () {
         {label: 'Espresso', value: 'espresso'},
         {label: 'Other', value: 'other'}
       ])
+      const columns = A([
+        {
+          className:'flex-l',
+          label:'Name',
+          propertyName:'name'
+        },
+        {
+          className:'flex-m',
+          label:'Milk',
+          propertyName:'milk'
+        },
+        {
+          className:'flex-m',
+          label:'Espresso',
+          propertyName:'espresso'
+        },
+        {
+          className:'flex-l',
+          label:'Other',
+          propertyName:'other'
+        }
+      ])
 
       this.setProperties({
         model: A([
@@ -84,6 +106,7 @@ describe(test.label, function () {
             espresso: '30ml'
           }
         ]),
+        columns: columns,
         selectedItems: selectedItems,
         sortOrder: sortOrder,
         sortingProperties: sortingProperties,
@@ -96,31 +119,10 @@ describe(test.label, function () {
         {{frost-pick-list
           hook='myPickList'
           listComponent=(component 'frost-table'
-            columns=(array
-                (hash
-                  className='flex-l'
-                  label='Name'
-                  propertyName='name'
-                )
-                (hash
-                  className='flex-m'
-                  label='Milk'
-                  propertyName='milk'
-                )
-                (hash
-                  className='flex-m'
-                  label='Espresso'
-                  propertyName='espresso'
-                )
-                (hash
-                  className='flex-l'
-                  label='Other'
-                  propertyName='other'
-                )
-                    )
-                  itemKey='uuid'
-                  onSelectionChange=(action onSelectionChange)
-                )
+            columns=columns
+            itemKey='uuid'
+            onSelectionChange=(action onSelectionChange)
+          )
           selectedItems=selectedItems
           items=model
           sortOrder=sortOrder

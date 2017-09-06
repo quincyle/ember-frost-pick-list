@@ -38,28 +38,7 @@
     {{frost-pick-list
       hook='frostPickListFromTable'
       listComponent=(component 'frost-table'
-        columns=(array
-          (hash
-            className='flex-l'
-            label='Name'
-            propertyName='name'
-          )
-          (hash
-            className='flex-m'
-            label='Milk'
-            propertyName='milk'
-          )
-          (hash
-            className='flex-m'
-            label='Espresso'
-            propertyName='espresso'
-          )
-          (hash
-            className='flex-l'
-            label='Other'
-            propertyName='other'
-          )
-        )
+        columns=columns
         itemKey='uuid'
         onSelectionChange=(action 'onSelectChange')
       )
