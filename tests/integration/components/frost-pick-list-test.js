@@ -120,8 +120,8 @@ describe(test.label, function () {
           hook='myPickList'
           listComponent=(component 'frost-table'
             columns=columns
-            itemKey='uuid'
             onSelectionChange=(action onSelectionChange)
+            itemKey='uuid'
           )
           selectedItems=selectedItems
           items=model
@@ -305,9 +305,9 @@ describe(test.label, function () {
             expandedItems=expandedItems
             item=(component 'frost-list-item')
             itemExpansion=(component 'frost-list-item')
-            itemKey='uuid'
             onExpansionChange=onExpansionChange
             onSelectionChange=onSelectionChange
+            itemKey='uuid'
           )
           selectedItems=selectedItems
           items=model

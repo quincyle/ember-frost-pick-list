@@ -46,7 +46,7 @@ export default Component.extend({
   /**
    * show all record or just selected
    * @param {Boolean} onlySelected - should show only selected?
-   * @returns {Boolean} should show only selected?
+   * @returns {Object} Contains the classes for the buttons
    */
   buttonPriority (onlySelected) {
     return {
@@ -85,7 +85,7 @@ export default Component.extend({
   },
 
   @readOnly
-  @computed('list.@each.' + this.itemKey, 'inputFilter')
+  @computed('list.[]', 'inputFilter')
   /**
    * Shows the filtered items
    * @param {Array} list - The list to filter
