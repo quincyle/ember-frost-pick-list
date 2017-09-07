@@ -2,19 +2,12 @@
 {{frost-pick-list
   ...
   listComponent=(component 'frost-table'
-      columns=(array
-        (hash
-          className='<defaults to flex1 but you can use flex2, flex5, flex10 tu use more space>'
-          label='<Label to show>'
-          propertyName='<Property of the column>'
-        )
-        ...
-      )
-      itemKey='<Row that holds the unique key>'
+      columns=<Array of columns>
       onSelectionChange=(action '<String>')
     )
   selectedItems=<Array of selected items>
   items=<Array of all items>
+  itemKey='<Row that holds the unique key>'
   sortOrder=<Array of string>
   sortingProperties=<Array of objects>
   sortOrderMax=<number>
@@ -55,11 +48,11 @@
       hook='frostPickListFromTable'
       listComponent=(component 'frost-table'
         columns=columns
-        itemKey='uuid'
         onSelectionChange=(action 'onSelectChange')
       )
       selectedItems=selectedItems
       items=model
+      itemKey='uuid'
       sortOrder=sortOrder
       sortingProperties=sortingProperties
       sortOrderMax=2

@@ -2,11 +2,11 @@
 {{!-- BEGIN-SNIPPET overview-content-api }}
 {{frost-pick-list
   listComponent=(component '<component name>'
-      itemKey='<Row that holds the unique key>'
       onSelectionChange=(action '<String>')
     )
   selectedItems=<Array of selected items>
   items=<Array of all items>
+  itemKey='<Row that holds the unique key>'
   sortOrder=<Array of string>
   sortingProperties=<Array of objects>
   sortOrderMax=<number>
@@ -39,11 +39,11 @@
       hook='frostPickListFromTable'
       listComponent=(component 'frost-table'
         columns=columns
-        itemKey='uuid'
         onSelectionChange=(action 'onSelectChange')
       )
       selectedItems=selectedItems
       items=model
+      itemKey='uuid'
       sortOrder=sortOrder
       sortingProperties=sortingProperties
       sortOrderMax=2

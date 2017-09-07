@@ -1,5 +1,5 @@
 import Ember from 'ember'
-const {A, Component, copy} = Ember
+const {A, addObserver, removeObserver, Component, copy} = Ember
 import computed, {readOnly, filter} from 'ember-computed-decorators'
 import {sort} from 'ember-frost-sort'
 import layout from '../templates/components/frost-pick-list'
@@ -85,7 +85,7 @@ export default Component.extend({
   },
 
   @readOnly
-  @computed('list.@each.uuid', 'inputFilter')
+  @computed('list.@each.' + this.itemKey, 'inputFilter')
   /**
    * Shows the filtered items
    * @param {Array} list - The list to filter
@@ -122,6 +122,14 @@ export default Component.extend({
     const sorted = sort(filteredItems, sortOrder)
     return sorted.compact()
   },
+
+/*  didInsertElement: function() {
+    addObserver(this.get('item'), property, this, this.ratingPropertyDidChange);
+  },
+
+  willDestroyElement: function() {
+    removeObserver(this.get('item'), property, this.ratingPropertyDidChange);
+  },*/
 
   // == Functions =============================================================
 
