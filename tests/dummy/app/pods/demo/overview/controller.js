@@ -13,24 +13,24 @@ export default Controller.extend({
   ],
   columns: A([
     {
-      className:'flex-l',
-      label:'Name',
-      propertyName:'name'
+      className: 'flex-l',
+      label: 'Name',
+      propertyName: 'name'
     },
     {
-      className:'flex-m',
-      label:'Milk',
-      propertyName:'milk'
+      className: 'flex-m',
+      label: 'Milk',
+      propertyName: 'milk'
     },
     {
-      className:'flex-m',
-      label:'Espresso',
-      propertyName:'espresso'
+      className: 'flex-m',
+      label: 'Espresso',
+      propertyName: 'espresso'
     },
     {
-      className:'flex-l',
-      label:'Other',
-      propertyName:'other'
+      className: 'flex-l',
+      label: 'Other',
+      propertyName: 'other'
     }
   ]),
 
