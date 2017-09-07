@@ -38,7 +38,7 @@ export default Controller.extend({
     onSelectChange (selected) {
       // this.get('selectedItems').setObjects(selected)
       this.get('selectedItems').clear()
-      this.get('selectedItems').pushObjects(selected.compact())
+      this.get('selectedItems').pushObjects(selected)
       if (selected.length > 0) {
         this.get('notifications').success(selected.getEach('name'), {
           autoClear: true,
