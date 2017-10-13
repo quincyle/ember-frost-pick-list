@@ -12,8 +12,7 @@
 # ember-frost-pick-list
 
  * [Installation](#installation)
- * [API](#api)
- * [Examples](#examples)
+ * [API and Examples](#api)
  * [Development](#development)
 
 ## Installation
@@ -22,10 +21,7 @@ ember install ember-frost-pick-list
 ```
 
 ## API
-Coming soon
-
-## Examples
-Coming soon
+Detailed API and example usage can be found in the sample application in `tests/dummy`, which is also running at http://ciena-frost.github.io/ember-frost-pick-list
 
 ## Development
 ### Setup

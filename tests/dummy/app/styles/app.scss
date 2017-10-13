@@ -1,12 +1,55 @@
-@import 'node_modules/ember-frost-core/addon/styles/frost-theme';
-@import 'node_modules/ember-frost-core/addon/styles/frost-app';
 
-.dummy-notification-container {
-  position: fixed;
-  top: 60px;
-  right: 10px;
-  z-index: 999;
-  width: 80%;
-  max-width: 400px;
-  margin: auto;
+@import 'node_modules/ember-frost-core/addon/styles/frost-theme';
+@import './addon-demo';
+
+$code-bg-color: #faf8f0;
+$content-border-color: #bebab0;
+
+.ember-frost-demo {
+  .dummy-notification-container {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+    z-index: 999;
+  }
+
+  pre {
+    font-family: 'Courier 10 Pitch', Courier, monospace;
+    font-size: 80%;
+    line-height: 140%;
+    white-space: pre-wrap;
+  }
+
+  code {
+    background: $code-bg-color;
+    font-family: Monaco, Consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 80%;
+    line-height: 140%;
+    white-space: pre-wrap;
+  }
+
+  .content {
+    code {
+      display: block;
+      padding: .5em 1em;
+      border: 1px solid $content-border-color;
+    }
+  }
+
+  .frost-tabs {
+    &.iframe {
+      .navigation {
+        display: none;
+      }
+    }
+  }
+}
+
+$shiny-color: #c0c0c0;
+
+.shiny {
+  background-color: $shiny-color;
 }
