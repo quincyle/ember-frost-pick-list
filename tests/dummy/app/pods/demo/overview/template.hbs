@@ -1,0 +1,53 @@
+{{notification-container position="top-right"}}
+{{!-- BEGIN-SNIPPET overview-content-api }}
+{{frost-pick-list
+  listComponent=(component '<component name>'
+      onSelectionChange=(action '<String>')
+    )
+  selectedItems=<Array of selected items>
+  items=<Array of all items>
+  itemKey='<Row that holds the unique key>'
+  sortOrder=<Array of string>
+  sortingProperties=<Array of objects>
+  sortOrderMax=<number>
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    Notes
+  </div>
+  <div class='addon-demo-notes'>
+    <p>
+      <b>ember-frost-pick-list</b> is a list picker for Ember.
+    </p>
+  </div>
+  <div class='addon-demo-title'>
+    API
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='overview-content-api.hbs'}}
+  </div>
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET content-overview-frost-tabs }}
+    {{frost-pick-list
+      hook='frostPickListFromTable'
+      listComponent=(component 'frost-table'
+        columns=columns
+        onSelectionChange=(action 'onSelectChange')
+        itemKey='uuid'
+      )
+      selectedItems=selectedItems
+      items=model
+      sortOrder=sortOrder
+      sortingProperties=sortingProperties
+      sortOrderMax=2
+    }}
+    {{! END-SNIPPET}}
+  </div>
+</div>

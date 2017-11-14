@@ -1,0 +1,68 @@
+{{!-- BEGIN-SNIPPET content-api-list }}
+{{frost-pick-list
+  ...
+  listComponent=(component 'frost-list'
+        expandedItems=<Array>
+        item=(component '<component name>')
+        itemExpansion=(component '<component name>')
+        onExpansionChange=(action '<String>')
+        onSelectionChange=(action '<String>')
+      )
+  selectedItems=<Array of selected items>
+  items=<Array of all items>
+  itemKey='<Row that holds the unique key>'
+  sortOrder=<Array of String>
+  sortingProperties=<Array of Object>
+  sortOrderMax=<number>
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    Notes
+  </div>
+  <div class='addon-demo-notes'>
+    <p>
+      To have your list content displayed inside a frost-list.
+    </p>
+  </div>
+  <div class='addon-demo-title'>
+    API
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='content-api-list.hbs'}}
+  </div>
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Demo controller</i>
+    {{code-snippet name='pick-list-controller-list.js'}}
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Demo template</i>
+    {{code-snippet name='content-frost-pick-list-list.hbs'}}
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET content-frost-pick-list-list }}
+    {{frost-pick-list
+      hook='frostPickListFromList'
+      listComponent=(component 'frost-list'
+        expandedItems=expandedItems
+        item=(component 'demo.list.list-item')
+        itemExpansion=(component 'demo.list.list-item-expansion')
+        onExpansionChange=(action 'onExpansionChange')
+        onSelectionChange=(action 'onSelectionChange')
+        itemKey='uuid'
+      )
+      selectedItems=selectedItems
+      items=model
+      sortOrder=sortOrder
+      sortingProperties=sortingProperties
+      sortOrderMax=2
+    }}
+    {{! END-SNIPPET }}
+  </div>
+</div>

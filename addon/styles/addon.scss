@@ -1,1 +1,172 @@
 @import 'node_modules/ember-frost-core/addon/styles/frost-theme';
+
+@import 'node_modules/ember-frost-table/app/styles/ember-frost-table';
+
+.frost-pick-list {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 20px 30px 30px;
+  border: solid 1px $frost-color-lgrey-2;
+
+  .a-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & > div {
+      display: inline-block;
+    }
+
+    & > table {
+      display: block;
+      width: 100%;
+    }
+
+    .sub-title {
+      float: right;
+      color: $frost-color-grey-4;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: $frost-font-s;
+      line-height: 50px;
+
+      &.is-frost-list {
+        margin-top: -15px;
+      }
+    }
+
+    .buttons {
+      display: block;
+      float: right;
+      line-height: 35px;
+      vertical-align: middle;
+
+      button {
+        width: 80px;
+      }
+
+      .label {
+        display: inline;
+        margin-right: 10px;
+        color: $frost-color-grey-4;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: $frost-font-s;
+      }
+
+      .splitter {
+        display: inline;
+        margin: 0 10px;
+      }
+    }
+
+    &:first-of-type {
+
+      .frost-text {
+        width: calc(100% - 400px);
+      }
+    }
+
+    &.is-frost-list {
+      height: 242px;
+      margin-top: -19px;
+
+      .frost-list {
+        margin-top: -25px;
+
+        .frost-list-content-container {
+          height: 230px;
+        }
+      }
+    }
+  }
+
+  .frost-table {
+    border: solid 1px $frost-color-lgrey-2;
+
+    .frost-table-header {
+      display: flex;
+
+      th {
+        flex: 1;
+
+        .frost-button {
+          padding: 0;
+        }
+
+        &:first-of-type {
+          flex: .5;
+        }
+
+        &.flex-s {
+          flex: 1;
+        }
+
+        &.flex-m {
+          flex: 2;
+        }
+
+        &.flex-l {
+          flex: 5;
+        }
+
+        &.flex-xl {
+          flex: 10;
+        }
+      }
+    }
+
+    .frost-table-body-scroll {
+      display: flex;
+
+      .ps-scrollbar-y-rail {
+        height: 200px;
+        margin-bottom: 0;
+      }
+
+      thead {
+        width: 100%;
+      }
+
+      tbody {
+        flex: 1;
+        width: 100%;
+        height: 200px;
+
+        tr {
+          display: flex;
+          flex-direction: row;
+
+          td {
+            flex: 1;
+
+            &:first-of-type {
+              flex: .5;
+            }
+
+            &.flex-s {
+              flex: 1;
+            }
+
+            &.flex-m {
+              flex: 2;
+            }
+
+            &.flex-l {
+              flex: 5;
+            }
+
+            &.flex-xl {
+              flex: 10;
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+  .frost-list {
+    display: block;
+    width: 100%;
+  }
+}
