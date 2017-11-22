@@ -1,6 +1,6 @@
 {
   "name": "ember-frost-pick-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -21,6 +21,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "bower": "^1.8.2",
     "broccoli-asset-rev": "^2.4.5",
     "chai-jquery": "^2.0.0",
     "ember-ajax": "^2.4.1",
