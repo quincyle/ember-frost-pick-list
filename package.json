@@ -48,8 +48,7 @@
     "ember-source": "~2.12.0",
     "ember-test-utils": "^8.1.0",
     "loader.js": "^4.2.3",
-    "sinon-chai": "^2.14.0",
-    "smoke-and-mirrors": "github:ciena-frost/smoke-and-mirrors"
+    "sinon-chai": "^2.14.0"
   },
   "keywords": [
     "ember-addon",
