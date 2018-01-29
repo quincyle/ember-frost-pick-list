@@ -1,6 +1,4 @@
 {
   "name": "ember-frost-pick-list",
-  "dependencies": {
-    "node-uuid": "1.4.7"
-  }
+  "dependencies": {}
 }
