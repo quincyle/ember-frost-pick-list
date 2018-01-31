@@ -1,3 +1,7 @@
+# 2.0.1 (2018-01-31)
+* **Updated** the config to try and get the dummy app to publish to gh-pages
+
+
 # 2.0.0 (2018-01-31)
 * **Added** ignore the linting of the `CHANGELOG.md`
 * **Removed** `package-lock` until we are ready to move to node 8
