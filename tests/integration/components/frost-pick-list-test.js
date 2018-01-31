@@ -133,22 +133,22 @@ describe(test.label, function () {
       return wait()
     })
 
-    it('Should render the "frost-pick-list" with a frost-table', function () {
+    it('should render the "frost-pick-list" with a frost-table', function () {
       expect($hook('myPickList')).to.have.length(1)
     })
-    it('Should render a "frost-text" filter', function () {
+    it('should render a "frost-text" filter', function () {
       expect($hook('myPickList-filterText')).to.have.length(1)
     })
-    it('Should render a "frost-sort"', function () {
+    it('should render a "frost-sort"', function () {
       expect($hook('myPickList-mySort')).to.have.length(1)
     })
-    it('Should render a sub title', function () {
+    it('should render a sub title', function () {
       expect(this.$('.sub-title')).to.have.length(1)
     })
-    it('Should display proper sub title', function () {
+    it('should display proper sub title', function () {
       expect(this.$('.sub-title').text().trim()).to.eql('Showing 7 of 7 (0 selected)')
     })
-    it('Should display proper record', function () {
+    it('should display proper record', function () {
       expect($hook('list-component-body-row-cell', {column: 0, row: 0}).text().trim()).to.eql('Americano')
     })
     describe('When clicking on sort button', function () {
@@ -156,7 +156,7 @@ describe(test.label, function () {
         $hook('myPickList-mySort-item-direction', {index: 0}).click()
         return wait()
       })
-      it('Should display ', function () {
+      it('should display ', function () {
         expect($hook('list-component-body-row-cell', {column: 0, row: 0}).text().trim()).to.eql('Mocha')
       })
     })
@@ -165,7 +165,7 @@ describe(test.label, function () {
         this.$('.frost-table tr:first-of-type td:nth-child(1) input').click()
         return wait()
       })
-      it('Should change the subtitle', function () {
+      it('should change the subtitle', function () {
         expect(this.$('.sub-title').text().trim()).to.eql('Showing 7 of 7 (1 selected)')
       })
       describe('When clicking on a second row', function () {
@@ -173,7 +173,7 @@ describe(test.label, function () {
           this.$('.frost-table tr:nth-child(2) td:nth-child(1) input').click()
           return wait()
         })
-        it('Should change the subtitle', function () {
+        it('should change the subtitle', function () {
           expect(this.$('.sub-title').text().trim()).to.eql('Showing 7 of 7 (2 selected)')
         })
         describe('When changing filtering', function () {
@@ -181,7 +181,7 @@ describe(test.label, function () {
             run(() => $hook('myPickList-filterText-input').val('am').trigger('input'))
             return wait()
           })
-          it('Should change the subtitle', function () {
+          it('should change the subtitle', function () {
             expect(this.$('.sub-title').text().trim()).to.eql('Showing 4 of 7 (2 selected)')
           })
           describe('When changing sorting', function () {
@@ -190,7 +190,7 @@ describe(test.label, function () {
               $hook('myPickList-mySort-item-direction', {index: 0}).trigger(clickEvent)
               return wait()
             })
-            it('Should change the subtitle', function () {
+            it('should change the subtitle', function () {
               expect(this.$('.frost-table tr:first-of-type td:nth-child(2)').text().trim()).to.eql('Macchiato')
             })
             describe('When clicking to show the selected records only', function () {
@@ -198,10 +198,10 @@ describe(test.label, function () {
                 $hook('myPickList-selectedButton').click()
                 return wait()
               })
-              it('Should change the subtitle', function () {
+              it('should change the subtitle', function () {
                 expect(this.$('.sub-title').text().trim()).to.eql('Showing 2 of 7 (2 selected)')
               })
-              it('Should change the display on the table', function () {
+              it('should change the display on the table', function () {
                 expect(this.$('.frost-table tr:first-of-type td:nth-child(2)').text().trim()).to.eql('Cafe noisette')
               })
               describe('When clicking to show all the records', function () {
@@ -209,10 +209,10 @@ describe(test.label, function () {
                   $hook('myPickList-allButton').click()
                   return wait()
                 })
-                it('Should change the subtitle', function () {
+                it('should change the subtitle', function () {
                   expect(this.$('.sub-title').text().trim()).to.eql('Showing 4 of 7 (2 selected)')
                 })
-                it('Should change the display on the table', function () {
+                it('should change the display on the table', function () {
                   expect(this.$('.frost-table tr:first-of-type td:nth-child(2)').text().trim()).to.eql('Macchiato')
                 })
               })
@@ -319,19 +319,19 @@ describe(test.label, function () {
       return wait()
     })
 
-    it('Should render the "frost-pick-list" with a frost-list', function () {
+    it('should render the "frost-pick-list" with a frost-list', function () {
       expect($hook('frostPickListFromList')).to.have.length(1)
     })
-    it('Should render a "frost-text" filter', function () {
+    it('should render a "frost-text" filter', function () {
       expect($hook('frostPickListFromList-filterText')).to.have.length(1)
     })
-    it('Should render a "frost-sort"', function () {
+    it('should render a "frost-sort"', function () {
       expect($hook('frostPickListFromList-mySort')).to.have.length(1)
     })
-    it('Should render a sub title', function () {
+    it('should render a sub title', function () {
       expect(this.$('.sub-title')).to.have.length(1)
     })
-    it('Should display proper sub title', function () {
+    it('should display proper sub title', function () {
       expect(this.$('.sub-title').text().trim()).to.eql('Showing 7 of 7 (0 selected)')
     })
     describe('When clicking on a row', function () {
@@ -339,7 +339,7 @@ describe(test.label, function () {
         this.$('.frost-list vertical-item:first-of-type input').click()
         return wait()
       })
-      it('Should change the subtitle', function () {
+      it('should change the subtitle', function () {
         expect(this.$('.sub-title').text().trim()).to.eql('Showing 7 of 7 (1 selected)')
       })
       describe('When clicking on a second row', function () {
@@ -347,7 +347,7 @@ describe(test.label, function () {
           this.$('.frost-list vertical-item:nth-child(2) input').click()
           return wait()
         })
-        it('Should change the subtitle', function () {
+        it('should change the subtitle', function () {
           expect(this.$('.sub-title').text().trim()).to.eql('Showing 7 of 7 (2 selected)')
         })
         describe('When changing filtering', function () {
@@ -355,7 +355,7 @@ describe(test.label, function () {
             run(() => $hook('frostPickListFromList-filterText-input').val('am').trigger('input'))
             return wait()
           })
-          it('Should change the subtitle', function () {
+          it('should change the subtitle', function () {
             expect(this.$('.sub-title').text().trim()).to.eql('Showing 4 of 7 (2 selected)')
           })
           describe('When clicking to show the selected records only', function () {
@@ -363,10 +363,10 @@ describe(test.label, function () {
               $hook('frostPickListFromList-selectedButton').click()
               return wait()
             })
-            it('Should change the subtitle', function () {
+            it('should change the subtitle', function () {
               expect(this.$('.sub-title').text().trim()).to.eql('Showing 2 of 7 (2 selected)')
             })
-            it('Should show only 2 records in the list', function () {
+            it('should show only 2 records in the list', function () {
               expect(this.$('.frost-list vertical-item')).to.have.length(2)
             })
             describe('When clicking to show all the records', function () {
@@ -374,10 +374,10 @@ describe(test.label, function () {
                 $hook('frostPickListFromList-allButton').click()
                 return wait()
               })
-              it('Should change the subtitle', function () {
+              it('should change the subtitle', function () {
                 expect(this.$('.sub-title').text().trim()).to.eql('Showing 4 of 7 (2 selected)')
               })
-              it('Should show only 4 records in the list', function () {
+              it('should show only 4 records in the list', function () {
                 expect(this.$('.frost-list vertical-item')).to.have.length(4)
               })
             })
