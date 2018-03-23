@@ -3,17 +3,39 @@ dist: trusty
 language: node_js
 
 node_js:
-- '6.11.0'
+- '8.1.2'
 - 'stable'
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - google-chrome
+    packages:
+    - google-chrome-stable
+    - g++-4.8
+  firefox: 'latest'
 
 cache:
   directories:
   - node_modules
 
+env:
+  matrix:
+    - EMBER_TRY_SCENARIO=ember-lts-2.8
+    - EMBER_TRY_SCENARIO=ember-default
+  global:
+    - CXX=g++-4.8
+    - secure: m3T8OBefKGIJLK1hogS6WvLXDxGSMX539d6Gazgd9D42Q/iF7ni+58fZM8akQOQMAzNssg82Yv29yS+GSudL68+jKHrzLviZ8gc77FwhLagEHOrxFZWPEdjNwNETkocXX03Rda+Bzo9ZaM+RA2jmJfcxxqu9U9rvjHgqNFyqeVLMrtI8BR0vIlyXEnk9lIroBy8Nw8xTFIQkaB3hJlPjbhnYHQSFlRnn8+gtcdu1ZrlGzm8uLHSacLLlcS0fF42tGeN54eGrgpMhhlOe1Kiu+eCIxnq96uoRWwKSfw+8WqidH/0CTcTaYirIXNdxPjUU3AyHeItmOG7TidAbrhfibu8S57OvVy5dL2cxixx8NRZBwmra0HEA0qEdP381K4Re6rJhJNL93B24SWw0UL7X2KmoFBjiPFYoom8VUm9v6rIe0YMtGYp9a6wBzI+Wx5hpdRQrWG9Rj2H6Sbnrfhl2SfMQwCPyHMpIxLfNAwsV4V6smX0w3MqmLHnzWdLj14k0ETOFVjOpcFxVeza/jo7XLW5FdpEgAxSZXDTI8qVMl2ViqeezTo9EKCHBylOEKIT3/usXbWpN5qAQWR7M/qyua31tWDrgsiNFpWncJQaFcRDF30bvULznR+GILEEk9ZwiBIgeGucsAkDEzQiPY62I8tRx7B26OK2X/sBPW09qNIk=
+
+matrix:
+  fast_finish: true
+  allow_failures:
+  - node_js: 'stable'
+
 before_install:
 - npm config set spin false
-- npm install -g bower
-- npm install -g coveralls pr-bumper@^2.0.0
+- npm install -g coveralls pr-bumper@^3.7.0 ciena-devops@^1.0.0
 - $(npm root -g)/pr-bumper/.travis/maybe-check-scope.sh
 
 install:
@@ -32,29 +54,6 @@ after_success:
 - .travis/maybe-publish-coverage.sh
 - .travis/maybe-publish-gh-pages.sh
 
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    - google-chrome
-    packages:
-    - google-chrome-stable
-    - g++-4.8
-  firefox: 'latest'
-
-env:
-  matrix:
-    - EMBER_TRY_SCENARIO=ember-lts-2.8
-    - EMBER_TRY_SCENARIO=ember-default
-  global:
-    - CXX=g++-4.8
-    - secure: m3T8OBefKGIJLK1hogS6WvLXDxGSMX539d6Gazgd9D42Q/iF7ni+58fZM8akQOQMAzNssg82Yv29yS+GSudL68+jKHrzLviZ8gc77FwhLagEHOrxFZWPEdjNwNETkocXX03Rda+Bzo9ZaM+RA2jmJfcxxqu9U9rvjHgqNFyqeVLMrtI8BR0vIlyXEnk9lIroBy8Nw8xTFIQkaB3hJlPjbhnYHQSFlRnn8+gtcdu1ZrlGzm8uLHSacLLlcS0fF42tGeN54eGrgpMhhlOe1Kiu+eCIxnq96uoRWwKSfw+8WqidH/0CTcTaYirIXNdxPjUU3AyHeItmOG7TidAbrhfibu8S57OvVy5dL2cxixx8NRZBwmra0HEA0qEdP381K4Re6rJhJNL93B24SWw0UL7X2KmoFBjiPFYoom8VUm9v6rIe0YMtGYp9a6wBzI+Wx5hpdRQrWG9Rj2H6Sbnrfhl2SfMQwCPyHMpIxLfNAwsV4V6smX0w3MqmLHnzWdLj14k0ETOFVjOpcFxVeza/jo7XLW5FdpEgAxSZXDTI8qVMl2ViqeezTo9EKCHBylOEKIT3/usXbWpN5qAQWR7M/qyua31tWDrgsiNFpWncJQaFcRDF30bvULznR+GILEEk9ZwiBIgeGucsAkDEzQiPY62I8tRx7B26OK2X/sBPW09qNIk=
-
-matrix:
-  fast_finish: true
-  allow_failures:
-  - node_js: 'stable'
-
 deploy:
   provider: npm
   email: npm.ciena@gmail.com
@@ -64,8 +63,11 @@ deploy:
   on:
     all_branches: true
     condition: "$EMBER_TRY_SCENARIO = 'ember-default'"
-    node: '6.11.0'
+    node: '8.1.2'
     tags: true
+
+after_deploy:
+- $(npm root -g)/ciena-devops/scripts/slack/incoming-webhooks/send-message.sh
 
 notifications:
   slack:
