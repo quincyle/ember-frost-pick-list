@@ -1,3 +1,10 @@
+# 4.0.0 (2018-04-16)
+
+* Upgraded `ember-frost-list` to `^11.0.0`
+* Upgraded `ember-frost-core` to `^8.0.0`
+* Upgraded `ember-frost-sort` to `^13.0.0`
+* Upgraded `ember-frost-table` to `^5.0.0`
+
 # 3.0.0 (2018-03-23)
 * **Updated** pull request template
 * **Added** issue template
